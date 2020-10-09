@@ -1,32 +1,43 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+<v-card class="overflow-hidden">
+  <v-app>
+    <v-app-bar
+    absolute
+      color="black"
+      dark
+      app
+    >
+    <v-row align="center" justify="space-around">
+      <v-btn   @click="App" >
+     Золошлаковые отходы
+      </v-btn>
+    <v-btn  icon @click="Classifler" >
+      Классификатор
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn>
+    <v-btn  @click="Classifler">
+        Классификатор
+      </v-btn>
+    <v-btn  @click="Organization">
+        ГРЭ и ТЭЦ
+      </v-btn>
+    </v-row>
+ </v-app-bar>
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
+  </v-card>
 </template>
-
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+<script>
+export default {
+ methods: {
+  Classifler() {
+    this.$router.push('/Classifler')
+  },
+  App() {
+    this.$router.push('App')
   }
+ }
 }
-</style>
+</script>
